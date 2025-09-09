@@ -22,7 +22,8 @@ Visit **localhost** slot page for rolling your fortune =)
 ## Configuration
 
 Both **frontend** and **backend** have `.env.example` files.  
-For running do not need to copping this files
+For running do not need to copping this files.
+Spin cost and free credits could be configured in a backend env file.
 To start development, copy these files to `.env` in their respective directories:
 ```bash
 # For frontend
