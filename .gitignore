@@ -49,8 +49,6 @@ Thumbs.db
 *.mov
 *.wmv
 
-docker-compose.yml
-
 .jwt.key
 .env
 k8

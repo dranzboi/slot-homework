@@ -1,0 +1,42 @@
+networks:
+  slot-network:
+    driver: bridge
+
+services:
+  db:
+    container_name: postgres-db
+    image: postgres:13.22
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: casino
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    restart: "always"
+    volumes:
+      - ${DOCKER_VOLUME_PATH:-./docker-volumes/postgres}:/var/lib/postgresql/data
+    networks:
+      - slot-network
+    
+  slot-frontend:
+    container_name: slot-frontend
+    build:
+      context: ./packages/slot-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    restart: "always"
+    
+  slot-server:
+    container_name: slot-server
+    build:
+      context: ./packages/slot-server
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    restart: "always"
+    depends_on:
+      - db 
+    networks:
+      - slot-network
