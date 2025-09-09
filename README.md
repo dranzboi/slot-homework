@@ -24,6 +24,7 @@ Visit **localhost** slot page for rolling your fortune =)
 Both **frontend** and **backend** have `.env.example` files.  
 For running do not need to copping this files.
 Spin cost and free credits could be configured in a backend env file.
+Slot size could be configured and timing of responsibility, look at frontend config.
 To start development, copy these files to `.env` in their respective directories:
 ```bash
 # For frontend
@@ -33,5 +34,3 @@ cp packages/slot-frontend/.env.example packages/slot-frontend/.env
 cp packages/slot-server/.env.example packages/slot-server/.env
 
 ```
-
-Slot size could be configured and timing of responsibility, look at frontend config
